@@ -7,13 +7,29 @@ public class Issue implements Comparable<Issue> {
     private int urgencyLevel; // 1 = most urgent
 
     // TODO: create constructor
+    public Issue(String descrpipt,int urgency){
+        description = descrpipt;
+        urgencyLevel = urgency;
+    }
 
     // TODO: implement compareTo()
     @Override
     public int compareTo(Issue other) {
         // TODO: implement priority logic
-        return 0;
+        if (urgencyLevel <  other.urgencyLevel){
+            return -1;
+        }
+        else if (urgencyLevel > other.urgencyLevel){
+            return 1;
+        }
+        else {
+            return 0;
+        }
     }
 
     // TODO: override toString()
+    @Override
+    public String toString(){
+        return "Issue{urgencyLevel = " + urgencyLevel + "\n, description :'" + description + "'}";
+    }
 }

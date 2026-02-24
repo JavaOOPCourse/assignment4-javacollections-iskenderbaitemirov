@@ -8,9 +8,33 @@ public class Student {
     private double gpa;
 
     // TODO: create constructor
-
+    public Student(int id, String name, double gpa) {
+        this.id = id;
+        this.name = name;
+        this.gpa = gpa;
+    }
     // TODO: create getters
-
+    public double getGpa() {
+        return gpa;
+    }
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
     // TODO: override toString()
-
+    @Override
+    public String toString() {
+        return "Student{id=" + id + ", name='" + name + "', gpa=" + gpa + "}";
+    }
 }

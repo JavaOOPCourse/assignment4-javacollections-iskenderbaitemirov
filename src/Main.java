@@ -10,6 +10,11 @@ public class Main {
         IssueService issueService = new IssueService();
         ActionHistoryService actionService = new ActionHistoryService();
 
+        studentService.initializeStudents();
+        appointmentService.initializeAppointments();
+        issueService.initializeIssues();
+        actionService.initializeActions();
+
         Scanner scanner = new Scanner(System.in);
         int choice;
 
@@ -29,21 +34,33 @@ public class Main {
             switch (choice) {
                 case 1:
                     // TODO
+                    studentService.findHighestGPA();
+                    studentService.printStudents();
                     break;
                 case 2:
                     // TODO
+                    appointmentService.printAppointments();
                     break;
                 case 3:
                     // TODO
+                    issueService.showMostUrgent();
                     break;
                 case 4:
                     // TODO
+                    actionService.printHistory();
                     break;
                 case 5:
                     // TODO
-                    break;
+                    System.out.print("Enter urgency level (1 = most urgent): ");
+                    int urgency = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Enter issue description: ");
+                    String desc = scanner.nextLine();
+                    issueService.addNewIssue(desc, urgency);
+                    issueService.printRemainingIssues();
                 case 6:
                     // TODO
+                    actionService.undoLastAction();
                     break;
                 case 7:
                     System.out.println("Exiting... 👋");
